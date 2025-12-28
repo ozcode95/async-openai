@@ -1014,6 +1014,7 @@ pub struct ChatCompletionStreamOptions {
     /// of overhead to the data stream. You can set `include_obfuscation` to
     /// false to optimize for bandwidth if you trust the network links between
     /// your application and the OpenAI API.
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub include_obfuscation: Option<bool>,
 }
 
@@ -1076,7 +1077,7 @@ pub struct ChatChoice {
 #[derive(Debug, Deserialize, Clone, PartialEq, Serialize)]
 pub struct CreateChatCompletionResponse {
     /// A unique identifier for the chat completion.
-    pub id: String,
+    pub id: Option<String>,
     /// A list of chat completion choices. Can be more than one if `n` is greater than 1.
     pub choices: Vec<ChatChoice>,
     /// The Unix timestamp (in seconds) of when the chat completion was created.
