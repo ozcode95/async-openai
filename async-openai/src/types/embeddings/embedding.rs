@@ -31,7 +31,7 @@ pub struct CreateEmbeddingRequest {
     /// ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list)
     /// API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models)
     /// for descriptions of them.
-    pub model: String,
+    pub model: Option<String>,
 
     /// Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single
     /// request, pass an array of strings or array of token arrays. The input must not exceed the max
