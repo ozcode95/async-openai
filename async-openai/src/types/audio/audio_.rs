@@ -220,7 +220,7 @@ pub struct CreateTranscriptionResponseJson {
 
     /// Token usage statistics for the request.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub usage: TranscriptionUsage,
+    pub usage: Option<TranscriptionUsage>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -244,7 +244,8 @@ pub struct CreateTranscriptionResponseDiarizedJson {
     pub segments: Vec<TranscriptionDiarizedSegment>,
 
     /// Token or duration usage statistics for the request.
-    pub usage: TranscriptionUsage,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub usage: Option<TranscriptionUsage>,
 }
 
 /// Represents a verbose json transcription response returned by model, based on
