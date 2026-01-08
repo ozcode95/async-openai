@@ -219,6 +219,7 @@ pub struct CreateTranscriptionResponseJson {
     pub logprobs: Option<Vec<LogProbProperties>>,
 
     /// Token usage statistics for the request.
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub usage: TranscriptionUsage,
 }
 
